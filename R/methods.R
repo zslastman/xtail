@@ -16,7 +16,7 @@ setMethod("dispersionMatrix", signature(object="DESeqDataSet"),
 #' @exportMethod "dispersions<-"
 setReplaceMethod("dispersionMatrix", signature(object="DESeqDataSet", value="matrix"),
                  function(object, value) {
-                  assays(object)[["dispersionMatrix"]] <- value
+                  assays(object,withDimnames=F)[["dispersionMatrix"]] <- value
                   validObject( object )
                   object
                  })

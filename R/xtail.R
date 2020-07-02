@@ -45,7 +45,7 @@ xTestWrapper <- function(i){
 
 estimateFun <- function(countData, condition, baseLevel, libsize, dispers){
 	## using the DESeqDataSet to store data
-	colData <- data.frame(row.names = colnames(countData), condition=condition)
+	colData <- data.frame(row.names = colnames(countData), condition=as.factor(condition))
 	dataSet <- DESeqDataSetFromMatrix(countData = countData, colData = colData, design = ~condition)
 	colData(dataSet)$condition <- relevel(colData(dataSet)$condition, baseLevel)
 

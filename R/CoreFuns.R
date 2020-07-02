@@ -54,8 +54,8 @@ estimateMLEForBeta <- function(object,modelMatrix=NULL,modelMatrixType="standard
 
   # store mu in case the user did not call estimateDispersionsGeneEst
   dimnames(fit$mu) <- NULL
-  assays(objectNZ)[["mu"]] <- fit$mu
-  assays(object)[["mu"]] <- buildMatrixWithNARows(fit$mu, mcols(object)$allZero)
+  assays(objectNZ,withDimnames=FALSE)[["mu"]] <- fit$mu
+  assays(object,withDimnames=FALSE)[["mu"]] <- buildMatrixWithNARows(fit$mu, mcols(object)$allZero)
 
   # store the prior variance directly as an attribute
   # of the DESeqDataSet object, so it can be pulled later by
